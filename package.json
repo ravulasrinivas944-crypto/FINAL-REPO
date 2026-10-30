@@ -1,0 +1,16 @@
+{
+  "name": "mlc-ward-wise-list",
+  "version": "1.0.0",
+  "private": true,
+  "description": "MLC Ward-wise List - React (no build step) app wrapped with Capacitor for Android",
+  "scripts": {
+    "serve": "npx http-server www -p 8080",
+    "android:add": "npx cap add android",
+    "android:sync": "npx cap sync android"
+  },
+  "dependencies": {
+    "@capacitor/android": "^6.1.2",
+    "@capacitor/cli": "^6.1.2",
+    "@capacitor/core": "^6.1.2"
+  }
+}

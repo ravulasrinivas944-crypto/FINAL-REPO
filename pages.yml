@@ -1,0 +1,23 @@
+name: Deploy web version to GitHub Pages
+# MANUAL ONLY, and think first: a Pages site is PUBLIC and this app contains voter names and phone numbers.
+# Do not run this unless you really want that data published on the open internet.
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: www
+      - id: deployment
+        uses: actions/deploy-pages@v4
